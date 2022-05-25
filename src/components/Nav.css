@@ -1,0 +1,30 @@
+.nav-container{
+    height: 100vh;
+    width: 40vw;
+    background-color: rgba(255, 255, 255, 0.118);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    padding: 10px 10px;
+}
+
+.input{
+    display: flex;
+}
+
+.search{
+    flex: 2;
+    background-color: gray;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.searchIcon{
+    flex:0.5;
+    background-color: yellow;
+}
