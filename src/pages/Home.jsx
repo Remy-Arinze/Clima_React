@@ -1,5 +1,4 @@
 import './Home.css'
-import moment from 'moment'
 
 function Home({weatherData}) {
 

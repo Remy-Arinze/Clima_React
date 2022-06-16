@@ -1,7 +1,6 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import './Nav.css'
 
-const key = '3a05c1c1aca554e5dabe8aa3545ef5c4'
 
 function Nav({weatherData,getCity}) {
     const [city,setCity] = useState('')
