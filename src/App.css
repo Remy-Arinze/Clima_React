@@ -1,3 +1,9 @@
 /* body{
     height: 100vh;
 } */
+
+.App{
+    display: flex;
+    align-items: center;
+    background-image: url('./images//pexels-artur-roman-518415.jpg');
+}

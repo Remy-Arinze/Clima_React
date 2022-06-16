@@ -1,51 +1,25 @@
-import React,{useEffect,useState} from 'react'
-import Nav from '../components/Nav'
 import './Home.css'
+import moment from 'moment'
 
-function Home() {
-
-  const key = '3a05c1c1aca554e5dabe8aa3545ef5c4'
-
-  const [weatherData, setWeatherData] = useState()
-  const [location, setLocation] = useState({
-    lat: null,
-    lon:null
-  })
-
-  useEffect(()=>{
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition((pos)=>{
-            setLocation({
-                lon:pos.coords.longitude,
-                lat:pos.coords.latitude
-            })
-            if(pos.lat){
-              fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=${key}`)
-            .then(res => {
-                return res.json()
-            }).then(data =>{
-              setWeatherData(data)
-                console.log(data);
-            }).catch(err => {
-                console.log(err);
-            })
-            }else{
-              console.log('cant find');
-            }
-            
-        });
-    }else{
-        console.log('cant');
-    }
-},[])
+function Home({weatherData}) {
 
   return (
-    <div className='container'>
-        <Nav />
-        <div>
-          {location.lat}
-          <br />
-          {location.lon}
+    <div style={{}} className='container'>
+    <p className="title">skySpice</p>
+        <div className='main'>
+        <div className="tempContainer">
+        {weatherData ? <p className="temp">{Math.floor(weatherData.main.temp)}℃</p> : <p>no data</p>}
+        </div>
+        <div className="locationDetail">
+          {weatherData ? <p className='countryName'>{weatherData.name}</p> : <p>no data</p>}
+          {weatherData ? <p className=''>{weatherData.sys.country}</p> : <p>no data</p>}
+        </div>
+        
+          <div className="weatherDetail">
+          {weatherData ? <img id="wicon" src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`} alt="Weather icon" />: null}
+          {weatherData? <p className="weatherDescription">{weatherData.weather[0].description}</p> : <p>no data</p>}
+          </div>
+
         </div>
     </div>
   )

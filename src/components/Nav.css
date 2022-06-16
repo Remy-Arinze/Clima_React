@@ -1,13 +1,17 @@
 .nav-container{
+    
     height: 100vh;
     width: 40vw;
-    background-color: rgba(255, 255, 255, 0.118);
+    background-color: rgba(213, 189, 189, 0.118);
     position: absolute;
     top: 0;
     right: 0;
     z-index: 10;
     backdrop-filter: blur(10px);
-    padding: 10px 10px;
+    padding: 5px 5px 0 2rem;
+}
+body{
+    color: white;
 }
 
 .input{
@@ -15,16 +19,41 @@
 }
 
 .search{
-    flex: 2;
-    background-color: gray;
+    flex: 1.7;
+    background-color: transparent;
     padding: 10px 5px;
-    border-radius: 5px;
-    border: none;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
     outline: none;
     color: white;
 }
 
+.search::placeholder{
+    color: rgb(40, 39, 39);
+}
+
 .searchIcon{
     flex:0.5;
-    background-color: yellow;
+    height: 50px;
+    margin-left:1rem;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+.detailsHeader{
+    margin: 7rem 0 3rem 0;
+}
+
+.Details{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.detail{
+    margin-right: 3rem;
 }

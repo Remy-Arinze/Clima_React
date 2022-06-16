@@ -3,47 +3,44 @@ import './Nav.css'
 
 const key = '3a05c1c1aca554e5dabe8aa3545ef5c4'
 
-function Nav() {
+function Nav({weatherData,getCity}) {
     const [city,setCity] = useState('')
-    const [cordinates, setCordinatess] = useState({
-        lon: null,
-        lat: null
-    })
-
 
     function handleChange(e){
         setCity(e.target.value)
     }
 
     function handleCLick(){
-        fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`).then(response => {
-                return response.json()
-            }).then(data => {
-                console.log(data);
-                setCordinatess({
-                    lat:data[0].lat,
-                    lon: data[0].lon
-                })
+        getCity(city)
+        console.log(city);
+        }
 
-                fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cordinates.lat}&lon=${cordinates.lon}&appid=${key}`).then(res =>{
-                    return res.json()
-                }).then(weatherdata => {
-                    console.log(weatherdata);
-                })
-            })
-            .catch(err =>{
-                console.log(err);
-            })
-    }
 
-  return (
+return (
     <div className='nav-container'>
         <div className="input">
-            <input onChange={handleChange} type="text" className='search' />
-            <button onClick={handleCLick} className="searchIcon"></button>
-            <h1>{cordinates.lat}</h1>
-
+            <input onChange={handleChange} placeholder ='Another Location' type="text" className='search' />
+            <button onClick={handleCLick} className="searchIcon">Search</button>
         </div>
+
+        <h3 className='detailsHeader'>Weather Details</h3>
+        <div className="Details">
+            <p className="detail">Cloud</p>
+            {weatherData ? <p className="value">{weatherData.clouds.all}%</p> : <p>null</p>}
+        </div>
+        <div className="Details">
+            <p className="detail">Humidity</p>
+            {weatherData ? <p className="value">{weatherData.main.humidity}%</p> : <p>null</p>}
+        </div>
+        <div className="Details">
+            <p className="detail">Wind</p>
+            {weatherData ? <p className="value">{Math.floor(weatherData.wind.speed)}km/h</p> : <p>null</p>}
+        </div>
+        {/* <div className="Details">
+            <p className="detail">Rain</p>
+            {weatherData ? <p className="value">{weatherData.rain.}km/h</p> : <p>null</p>}
+        </div> */}
+
     </div>
   )
 }
