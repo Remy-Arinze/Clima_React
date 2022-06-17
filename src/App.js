@@ -16,9 +16,6 @@ const key = '3a05c1c1aca554e5dabe8aa3545ef5c4'
 let lon;
 let lat;
 
-let mode;
-
-
 
 function App() {
   
@@ -44,11 +41,6 @@ function App() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
 
-function getMode(weatherDesc){
-  console.log(weatherDesc);
-  mode = weatherDesc
-  console.log(mode);
-}
 
 function getLocationData(lat,lon){
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&mode=json&units=metric`)
@@ -64,7 +56,7 @@ function getLocationData(lat,lon){
 
 
 function getCityWeather(city){
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`).then(response => {
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${key}`).then(response => {
                 return response.json()
             }).then(data => {
               lat = data[0].lat
