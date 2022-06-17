@@ -56,7 +56,6 @@ function getLocationData(lat,lon){
       return res.json()
   }).then(data =>{
     setWeatherData(data)
-    getMode(data.weather[0].main)
     console.log(data);
   }).catch(err => {
       console.log(err);
@@ -71,8 +70,8 @@ function getCityWeather(city){
               lat = data[0].lat
               lon = data[0].lon
               getLocationData(lat,lon)
-              getMode(data.weather[0].main)
               setToggle(false)
+              console.log(toggle);
             })
 }
 
