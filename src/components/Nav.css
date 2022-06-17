@@ -47,6 +47,8 @@ body{
     margin: 7rem 0 3rem 0;
 }
 
+
+
 .Details{
     width: 40%;
     display: flex;
@@ -56,4 +58,37 @@ body{
 
 .detail{
     margin-right: 3rem;
+}
+
+
+@media (min-width:300px) and (max-width:750px){
+    .nav-container{
+        display: none;
+        width: 60vw;
+        padding: 5px 0px 0 8px;
+
+    }
+
+    .search{
+        flex: 1;
+        background-color: transparent;
+        padding: 1px 1px;
+        
+    }
+
+    .searchIcon{
+        flex:1;
+        height: 40px;
+        margin-left:.3rem;
+        border-radius: 5px;
+    }
+
+    .detailsHeader{
+        margin: 10rem 0 2rem 0;
+    }
+    .Details{
+        margin-top: 1.5rem;
+    }
+    
+ 
 }

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import './Nav.css'
 
 
-function Nav({weatherData,getCity}) {
+function Nav({weatherData,getCity,toggle}) {
     const [city,setCity] = useState('')
 
     function handleChange(e){
@@ -14,9 +14,10 @@ function Nav({weatherData,getCity}) {
         console.log(city);
         }
 
-
 return (
-    <div className='nav-container'>
+    <div style={{
+        display: toggle? 'block':null
+    }} className='nav-container'>
         <div className="input">
             <input onChange={handleChange} placeholder ='Another Location' type="text" className='search' />
             <button onClick={handleCLick} className="searchIcon">Search</button>

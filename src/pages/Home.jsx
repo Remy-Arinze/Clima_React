@@ -1,10 +1,17 @@
 import './Home.css'
+import icon from '../images/Hamburger A (2).png'
+import cancel from '../images/iconCancel.png'
 
-function Home({weatherData}) {
+
+function Home({weatherData,setToggle,toggle}) {
 
   return (
     <div style={{}} className='container'>
     <p className="title">skySpice</p>
+    <img style={{
+      right: toggle ? '60%' : null
+    }} onClick={()=>setToggle(!toggle)} className='icon' src={!toggle?icon:cancel} alt="" />
+
         <div className='main'>
         <div className="tempContainer">
         {weatherData ? <p className="temp">{Math.floor(weatherData.main.temp)}℃</p> : <p>no data</p>}

@@ -65,3 +65,54 @@ body{
 .title{
     margin: 3rem 0 0 14rem;
 }
+
+.icon{
+    width: 25px;
+    height: 25px;
+    display: none;
+}
+
+
+@media (min-width:300px) and (max-width:750px) {
+    .container{
+        flex: 1;
+    }
+
+    #wicon{
+        align-self: flex-start;
+    }
+
+    .main{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .tempContainer, .locationDetail{
+        margin-left: 7rem;
+    }
+
+    .weatherDetail{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 38%;
+        left: 30%;
+    }
+
+    
+.title{
+    margin: 1rem 0 0 1rem;
+    font-size: 12px;
+}
+
+.icon{
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 1.8%;
+    z-index: 300;
+}
+}
