@@ -70,12 +70,13 @@ body{
     }
 
     .search{
-        flex: .5;
+        flex: 1;
         background-color: transparent;
         position: absolute;
         left: 1%;
         top: 2%;
         padding: 1px 1px;
+        width: 9rem;
         
     }
 
@@ -83,9 +84,10 @@ body{
         flex:1;
         height: 30px;
         position: absolute;
-        right: 0;
+        right: 1.5%;
         margin-left:.3rem;
         border-radius: 5px;
+        padding-inline: 2px;
     }
 
     .detailsHeader{

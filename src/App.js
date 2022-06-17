@@ -25,22 +25,21 @@ function App() {
   const [weatherData, setWeatherData] = useState(null)
   const [toggle,setToggle] = useState(false)
 
+  // const options = {
+  //   enableHighAccuracy: true,
+  //   timeout: 5000,
+  //   maximumAge: 0
+  // }
+
   
   useEffect(()=>{
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    }
     
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(pos => {
                 lon = pos.coords.longitude
                 lat = pos.coords.latitude
             getLocationData(lon,lat)
-        },(err)=>{
-          console.warn(`ERROR(${err.code}): ${err.message}`);
-        },options);
+        });
     }
 // eslint-disable-next-line react-hooks/exhaustive-deps
 },[])
